@@ -1,13 +1,52 @@
-body {
-  background-color: #b5e8ca;
-  font-family: Arial;
+:root{
+  --bg: #000;
+  --fg: #fff;
+  --muted: #bbb;
 }
-h1 {
-  color: white;
+
+html,body{height:100%;}
+body{
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Courier New", Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
-button {
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border: none;
+
+.layout{display:flex;min-height:100vh}
+.sidebar{
+  width:240px;
+  padding:24px 16px;
+  border-right:2px solid var(--fg);
+  box-sizing:border-box;
+}
+.name{
+  font-size:28px;
+  letter-spacing:2px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.role{color:var(--muted);font-size:12px;margin-bottom:16px}
+.contact{font-size:12px;color:var(--muted)}
+.contact a{color:var(--fg);text-decoration:underline}
+
+.main{flex:1;display:flex;flex-direction:column}
+.tabs{display:flex;border-bottom:2px solid var(--fg);padding:12px 16px}
+.tab{background:transparent;color:var(--fg);border:none;padding:8px 12px;margin-right:8px;cursor:pointer;font-family:inherit;font-size:14px}
+.tab:focus{outline:2px dashed var(--muted)}
+.tab.active{background:transparent;border-bottom:2px solid var(--fg)}
+
+.content{padding:20px}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+.doc-wrap{border:1px dashed var(--fg);padding:8px}
+.pdf-frame{width:100%;height:70vh;border:0;background:#111;color:var(--fg)}
+
+h2,h3{font-family:inherit;color:var(--fg);margin-top:0}
+section{margin-bottom:16px}
+
+@media (max-width:700px){
+  .layout{flex-direction:column}
+  .sidebar{width:100%;border-right:none;border-bottom:2px solid var(--fg)}
 }

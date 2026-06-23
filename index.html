@@ -3,16 +3,88 @@
 <head>
   <title> website signment practice</title>
    <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Digital Resume</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1> 7/11 was a part time job</h1>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="name">John Pork</div>
+      <div class="role">Professional Larper</div>
+      <div class="contact">
+        <div>email: <a href="mailto:john@example.com">johnpork@littlesaintjames.com</a></div>
+        <div>phone: (555) 555-5555</div>
+      </div>
+    </aside>
 
-  <p>
-    the struggle isreal
-  </p>
-  <button>
-    the big green button
-  </button>
+    <main class="main">
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-target="resume" role="tab">Resume</button>
+        <button class="tab" data-target="skills" role="tab">Skills</button>
+        <button class="tab" data-target="about" role="tab">About</button>
+      </nav>
+
+      <section class="content">
+        <div id="resume" class="tab-content active">
+          <div class="doc-wrap">
+            <iframe src="resume.pdf" class="pdf-frame" title="Resume PDF">
+              <p>Unable to display PDF. <a href="resume.pdf">Download resume</a>.</p>
+            </iframe>
+          </div>
+        </div>
+
+        <div id="skills" class="tab-content">
+          <h2>Skills</h2>
+          <section>
+            <h3>Programming Languages</h3>
+            <p>Python </p>
+          </section>
+          <section>
+            <h3>Gym</h3>
+            <p>Bench 205lbs, doomscrollin 4h in a row for 3 sets</p>
+          </section>
+          <section>
+            <h3>Tools & Platforms</h3>
+            <p>pickle in my pouch</p>
+          </section>
+        </div>
+
+        <div id="about" class="tab-content">
+          <h2>About</h2>
+          <section>
+            <h3>Summary</h3>
+            <p>Placeholder biography: larp larp larp</p>
+          </section>
+          <section>
+            <h3>Experience Highlights</h3>
+            <p> taking it easy at home</p>
+          </section>
+          <section>
+            <h3>Interests</h3>
+            <p> online trolling</p>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tabs .tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.target;
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        const el = document.getElementById(target);
+        if (el) el.classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
